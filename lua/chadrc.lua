@@ -13,7 +13,7 @@ M.ui = {
             bg = "one_bg",
         },
         LineNr = {
-            bg = "one_bg"
+            fg = "light_grey"
         }
     },
     cmp = {
