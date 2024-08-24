@@ -9,6 +9,10 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 -- nohlsearch
 map('n', '<CR>', ":nohlsearch<CR> <CR>")
 
+-- lets me switch windows easier
+map('n', '<leader>h', '<C-w>h')
+map('n', '<leader>l', '<C-w>l')
+
 -- lets me switch buffers easier
 map('n', '<leader>[', ':bp<CR>')
 map('n', '<leader>]', ':bn<CR>')
