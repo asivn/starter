@@ -14,7 +14,13 @@ M.ui = {
         },
         LineNr = {
             fg = "light_grey",
-        }
+        },
+        Include = {
+            fg = "dark_purple",
+        },
+        Comment = {
+            fg = "comment",
+        },
     },
     cmp = {
         icons = true,
@@ -22,8 +28,8 @@ M.ui = {
         style = "default",
     },
     statusline = {
-        theme = "vscode_colored"
-    }
+        theme = "vscode_colored",
+    },
 }
 
 return M
