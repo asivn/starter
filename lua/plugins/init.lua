@@ -85,7 +85,7 @@ return {
     },
     {
         "GCBallesteros/jupytext.nvim",
-        lazy = true,
+        lazy = false,
         config = function()
             require("jupytext").setup {
                 style = "markdown",
@@ -96,9 +96,12 @@ return {
     },
     {
         "benlubas/molten-nvim",
-        lazy = true,
+        lazy = false,
         version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
         build = ":UpdateRemotePlugins",
+        keys = {
+            { "<space>mi", "<cmd>MoltenInit<CR>", desc = "Initialize the plugin" },
+        },
         init = function()
             -- Key mappings for molten-nvim
             -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
