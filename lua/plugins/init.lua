@@ -33,7 +33,6 @@ return {
     },
     {
         "kawre/leetcode.nvim",
-        lazy = false,
         build = ":TSUpdate html",
         dependencies = {
             "nvim-telescope/telescope.nvim",
@@ -51,11 +50,9 @@ return {
     },
     {
         "rcarriga/nvim-notify",
-        config = function()
-            require("notify").setup {
-                background_colour = "#000000",
-            }
-        end,
+        opts = {
+            background_colour = "#000000",
+        },
     },
     {
         "lervag/vimtex",
@@ -87,13 +84,11 @@ return {
     {
         "GCBallesteros/jupytext.nvim",
         lazy = false,
-        config = function()
-            require("jupytext").setup {
-                style = "markdown",
-                output_extension = "md",
-                force_ft = "markdown",
-            }
-        end,
+        opts = {
+            style = "markdown",
+            output_extension = "md",
+            force_ft = "markdown",
+        },
     },
     {
         "benlubas/molten-nvim",
@@ -159,43 +154,27 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        config = function()
-            require("obsidian").setup {
-                workspaces = {
-                    {
-                        name = "Paul",
-                        path = "/Users/paulyoon/Library/Mobile Documents/iCloud~md~obsidian/documents/paulyoon",
-                    },
+        opts = {
+            workspaces = {
+                {
+                    name = "Paul",
+                    path = "/Users/paulyoon/Library/Mobile Documents/iCloud~md~obsidian/documents/paulyoon",
                 },
-                notes_subdir = "inbox",
-                new_notes_location = "notes_subdir",
+            },
+            notes_subdir = "inbox",
+            new_notes_location = "notes_subdir",
 
-                disable_frontmatter = true,
-                templates = {
-                    subdir = "templates",
-                    date_format = "%Y-%m-%d",
-                    time_format = "%H:%M:%S",
-                },
-
-                mappings = {
-                    -- overrides the 'gf' mapping to work on markdown/wiki links within your vault
-                    ["gf"] = {
-                        action = function()
-                            return require("obsidian").util.gf_passthrough()
-                        end,
-                        opts = { noremap = false, expr = true, buffer = true },
-                    },
-                },
-                completion = {
-                    nvim_cmp = true,
-                    min_chars = 2,
-                },
-                ui = {
-                    checkboxes = {},
-                    bullets = {},
-                },
-            }
-        end,
+            disable_frontmatter = true,
+            templates = {
+                subdir = "templates",
+                date_format = "%Y-%m-%d",
+                time_format = "%H:%M:%S",
+            },
+            completion = {
+                nvim_cmp = true,
+                min_chars = 5,
+            },
+        },
     },
     -- Ai tool to make nvim like cursor.ai
     {
@@ -214,10 +193,8 @@ return {
             "stevearc/dressing.nvim",
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
-            --- The below is optional, make sure to setup it properly if you have lazy=true
             {
                 "MeanderingProgrammer/render-markdown.nvim",
-                lazy = true,
                 keys = {
                     { "<leader>aa", "<cmd>AvanteAsk<cr>", desc = "Avante" },
                 },
@@ -225,42 +202,41 @@ return {
                     file_types = { "markdown", "Avante" },
                 },
             },
+            --- The below is optional, make sure to setup it properly if you have lazy=true
         },
     },
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        config = function()
-            require("noice").setup {
-                -- add any options here
-                lsp = {
-                    signature = {
-                        enabled = false,
-                    },
+        opts = {
+            -- add any options here
+            lsp = {
+                signature = {
+                    enabled = false,
                 },
-                routes = {
-                    {
-                        filter = {
-                            event = "msg_show",
-                            any = {
-                                { find = "%d+L, %d+B" },
-                                { find = "; after #%d+" },
-                                { find = "; before #%d+" },
-                                { find = "%d fewer lines" },
-                                { find = "%d more lines" },
-                            },
+            },
+            routes = {
+                {
+                    filter = {
+                        event = "msg_show",
+                        any = {
+                            { find = "%d+L, %d+B" },
+                            { find = "; after #%d+" },
+                            { find = "; before #%d+" },
+                            { find = "%d fewer lines" },
+                            { find = "%d more lines" },
                         },
-                        opts = { skip = true },
                     },
+                    opts = { skip = true },
                 },
-                presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
-                    long_message_to_split = true, -- long messages will be sent to a split
-                    lsp_doc_border = false, -- add a border to hover docs and signature help
-                },
-            }
-        end,
+            },
+            presets = {
+                bottom_search = true, -- use a classic bottom cmdline for search
+                command_palette = true, -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                lsp_doc_border = false, -- add a border to hover docs and signature help
+            },
+        },
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",

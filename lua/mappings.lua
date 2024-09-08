@@ -33,6 +33,6 @@ map("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
 map("n", "<leader>os", ":Telescope find_files search_dirs={\"/Users/paulyoon/Library/Mobile\\ Documents/iCloud~md~obsidian/documents/paulyoon\"}<cr>")
 map("n", "<leader>og", ":Telescope live_grep search_dirs={\"/Users/paulyoon/Library/Mobile\\ Documents/iCloud~md~obsidian/documents/paulyoon\"}<cr>")
 map("n", "<leader>ok", ":!mv '%:p' /Users/paulyoon/Library/Mobile\\ Documents/iCloud~md~obsidian/documents/paulyoon/sort<cr>:bd<cr>")
+
 -- delete file in current buffer
 map("n", "<leader>od", ":!rm '%:p'<cr>:bd<cr>")
-
