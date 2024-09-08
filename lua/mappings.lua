@@ -36,3 +36,5 @@ map("n", "<leader>ok", ":!mv '%:p' /Users/paulyoon/Library/Mobile\\ Documents/iC
 
 -- delete file in current buffer
 map("n", "<leader>od", ":!rm '%:p'<cr>:bd<cr>")
+map("n", "E", "$")
+map("n", "B", "^")
